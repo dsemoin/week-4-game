@@ -1,0 +1,56 @@
+H1 {
+text-align: center;
+background-color: purple;
+color: azure;
+font-size: 3em;
+border: 5px solid plum;
+}
+p {
+    font-size: 1.4em;
+    text-align-last: center;
+    background-color: rgb(190, 185, 185);
+    font-family: fantasy;   
+}
+#wl {
+    font-size: 1.4em;
+    text-align-last: left;
+    background-color: rgb(21, 184, 21); 
+    float: right;
+    width: 400px;
+
+}
+
+.crystals {
+    clear: both;
+}
+.crystals > img {
+    height: 130px;
+    width: 130px;
+    padding: 30px;
+   
+}
+.container {
+    margin: 0 auto; 
+    width: 800px;
+    border: 20px solid rgb(150, 146, 146);
+
+}
+#ranNum {
+    background-color: rgb(212, 90, 45);
+    float: left;
+    width: 350px;
+    height: 104px;
+    font-size: 2em;
+    text-align: center;
+    
+}
+#total-score {
+    padding: 30px;
+    background-color: rgb(70, 70, 218);
+    width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 40px;
+
+
+}

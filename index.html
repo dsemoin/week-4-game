@@ -1,0 +1,113 @@
+<!--  create html file -->
+<!-- create variables/numbers that player will have to guess(19-120) -->
+<!-- create 4 crystal buttons that players will click on (1-12) -->
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Crystals Collector Game </title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head> 
+    <!-- this adds a background image to the game -->
+  <body style="background-image: url('assets/images/Crystal background.jpg')">
+    <div class="container">
+   <!-- This will display on the screen -->
+    <H1>Chrystals Collector!</H1>
+    <div id="gameInstructions">
+        <p>
+        Your task is to use the crystals to match the number on the screen. <br>
+        Click on the crystals to add to the number displayed. <br>
+        You win the game by matching the your total score to the number displayed. <br> <br>
+        Good luck!
+        </p>
+    </div>
+    <!-- This displays the changes in the game as a result of the player's actions -->
+    <div class="gameBoard">
+        
+        <div id="ranNum">Display Number</div>
+        <div id="wl">
+            <div id="wins">Wins</div><br>
+            <div id="losses">Losses</div><br>   
+        </div>
+        <!-- These are the crystal images -->
+        <!-- give crystals ids to call in javascript/jQuery -->
+        <div class="crystals">
+            <img id="crystal1" src="./assets/images/crystal 1.ico">
+            <img id="crystal2" src="./assets/images/Crystal 2.ico">  
+            <img id="crystal3" src="./assets/images/Crystal 3.png"> 
+            <img id="crystal4" src="./assets/images/Crystal 4.ico">
+        </div>  
+        <!-- this is where the scores will register -->
+        <div class="score">
+            <p>Your total score is:</p> <br>
+            <div id="total-score"></div>
+        </div> 
+    </div>
+         
+    </div>
+</div> 
+<!-- This is where the Javascript starts/ this is what tells the user what to do -->
+<script type="text/javascript">
+// make variables to play the game
+var losses = 0; 
+var wins = 0;
+// to create a reset function for the game, every variable that needs be reset needs to go in one var.
+// this was done retroactively.
+var crystal1, crystal2, crystal3, crystal4, totNum, ranNum ;
+function resetGame() {
+crystal1 = Math.floor(Math.random() * 11) + 1;
+crystal2 = Math.floor(Math.random() * 11) + 1;
+crystal3 = Math.floor(Math.random() * 11) + 1;
+crystal4 = Math.floor(Math.random() * 11) + 1;
+totNum = 0;
+// show random number
+ranNum = Math.floor(Math.random() * 101) + 19;
+$('#ranNum').text(ranNum);
+$('#total-score').text(totNum);
+$('#wins').text('Wins: ' + wins);
+$('#losses').text('Losses: ' + losses)
+}
+//call on the reset function to reset the game
+resetGame();
+
+// Create conditions for win or loose.
+var conditions = () => { 
+if (ranNum === totNum) {
+    alert("You win!");
+    wins++;
+    resetGame();
+    }
+    
+if (totNum > ranNum) {
+alert('Ha Ha, You lost :(');
+losses++;
+resetGame();
+    }  
+}
+//create on('click') events for the crystals using jQuery
+$('#crystal1').on('click', () => {
+    totNum += crystal1;
+    $('#total-score').text(totNum);
+    conditions();
+});
+$('#crystal2').on('click', () => {
+    totNum += crystal2;
+    $('#total-score').text(totNum);
+    conditions();
+});
+$('#crystal3').on('click', () => {
+    totNum += crystal3;
+    $('#total-score').text(totNum);
+    conditions();
+});
+$('#crystal4').on('click', () => {
+    totNum += crystal4;
+    $('#total-score').text(totNum);
+    conditions();
+});
+// Is there a way to view the last number before the alert? 
+</script>
+  </body>
+  </html>    
